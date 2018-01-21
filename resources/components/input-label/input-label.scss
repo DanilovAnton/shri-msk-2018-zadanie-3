@@ -1,0 +1,29 @@
+@import '../mixin/mixin';
+
+.input-label {
+  display: block;
+}
+
+.input-label__text {
+  font-family: HelveticaNeue, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  color: #000;
+  letter-spacing: 0;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.input-label_mobile_show {
+  display: none;
+
+  @include mobile() {
+    display: block;
+  }
+}
+
+.input-label_mobile_hide {
+  @include mobile() {
+    display: none;
+  }
+}

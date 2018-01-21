@@ -1,0 +1,70 @@
+{
+  "name": "shri-2018",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.4.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "semistandard --fix",
+    "reset-db": "rm -f ./db.sqlite3 && node create-mock-data.js",
+    "server-dev": "nodemon index.js",
+    "build-dev": "set NODE_ENV=development&& webpack && nodemon index.js",
+    "build-prod": "set NODE_ENV=production&& webpack && nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zindzay/gulp-test.git"
+  },
+  "dependencies": {
+    "apollo-cache-inmemory": "^1.1.4",
+    "apollo-client": "^2.0.4",
+    "apollo-link-http": "^1.3.2",
+    "express": "^4.15.4",
+    "express-graphql": "^0.6.11",
+    "graphql": "^0.11.1",
+    "graphql-date": "^1.0.3",
+    "graphql-tag": "^2.6.1",
+    "graphql-tools": "^1.2.1",
+    "moment": "^2.20.1",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-apollo": "^2.0.4",
+    "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.0",
+    "react-swipeable": "^4.2.0",
+    "sequelize": "^4.7.5",
+    "sqlite3": "^3.1.9"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.2.3",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.17",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.6",
+    "html-webpack-plugin": "^2.30.1",
+    "node-sass": "^4.7.2",
+    "nodemon": "^1.12.5",
+    "morgan": "^1.9.0",
+    "optimize-css-assets-webpack-plugin": "^3.2.0",
+    "postcss-flexbugs-fixes": "^3.2.0",
+    "postcss-loader": "^2.0.9",
+    "postcss-units": "^1.1.0",
+    "sass-loader": "^6.0.6",
+    "semistandard": "^11.0.0",
+    "style-loader": "^0.19.1",
+    "uglifyjs-webpack-plugin": "^1.1.4",
+    "webpack": "^3.10.0",
+    "webpack-merge": "^4.1.1",
+    "webpack-config": "^7.5.0"
+  }
+}

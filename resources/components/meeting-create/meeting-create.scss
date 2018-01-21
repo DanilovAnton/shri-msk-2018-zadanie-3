@@ -1,0 +1,161 @@
+@import '../mixin/mixin';
+
+form {
+  width: 100%;
+}
+
+.meeting-create {
+  max-width: 904px;
+  padding: 0 16px;
+  margin: 31px auto 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+
+  @include laptop() {
+    max-width: 470px;
+  }
+
+  @include mobile() {
+    max-width: 100%;
+    margin: 24px auto 0;
+  }
+}
+
+.meeting-create__header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 31px;
+
+  @include mobile() {
+    margin-bottom: 24px;
+  }
+}
+
+.meeting-create__title {
+  margin: 0;
+  padding: 0;
+  font-family: HelveticaNeue, Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #000;
+  letter-spacing: 0;
+}
+
+.meeting-create__button {
+  @include mobile() {
+    display: none;
+  }
+}
+
+.meeting-create__body {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.meeting-create__theme {
+  width: 48%;
+  margin-bottom: 24px;
+
+  @include laptop() {
+    width: 100%;
+  }
+
+  @include mobile() {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+}
+
+.meeting-create__date {
+  display: flex;
+  justify-content: space-between;
+  width: 49%;
+  position: relative;
+  margin-bottom: 24px;
+
+  & > .input-group {
+    width: auto;
+  }
+
+  & > .input-group:first-child {
+    margin-bottom: 8px;
+  }
+
+  @include laptop() {
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  @include mobile() {
+    width: 100%;
+    flex-wrap: wrap;
+    margin-bottom: 44px;
+
+    & > .input-group {
+      width: 100%;
+    }
+
+    &:after {
+      content: "";
+      height: 8px;
+      background: #E9ECEF;
+      display: block;
+      position: absolute;
+      left: -16px;
+      right: -16px;
+      bottom: -28px;
+    }
+  }
+}
+
+.meeting-create__participants {
+  width: 48%;
+  margin-bottom: 18px;
+  position: relative;
+
+  @include laptop() {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+
+  @include mobile() {
+    width: 100%;
+    margin-bottom: 23px;
+
+    &:after {
+      content: "";
+      height: 8px;
+      background: #E9ECEF;
+      display: block;
+      position: absolute;
+      left: -16px;
+      right: -16px;
+      bottom: -5px;
+    }
+  }
+}
+
+.meeting-create__recommended-room {
+  width: 49%;
+  margin-bottom: 24px;
+
+  @include laptop() {
+    width: 100%;
+    margin-bottom: 23px;
+  }
+
+  @include mobile() {
+    width: 100%;
+    position: relative;
+  }
+}

@@ -1,0 +1,323 @@
+//user query
+query {
+  user(id: 1) {
+    id
+    login
+    homeFloor
+    avatarUrl
+  }
+}
+
+query {
+  users {
+    id
+    login
+    homeFloor
+    avatarUrl
+  }
+}
+
+//room query
+query {
+    room(id: 1) {
+        id
+        title
+        capacity
+        floor
+    }
+}
+  query {
+    rooms {
+      id
+      title
+      capacity
+      floor
+    }
+  }
+
+//event query
+  query {
+    event(id:1) {
+      id
+      title
+      dateStart
+      dateEnd
+      users {
+        id
+        login
+        homeFloor
+        avatarUrl
+      }
+      room {
+        id
+        title
+        capacity
+        floor
+      }
+    }
+  }
+
+  query {
+    events {
+      id
+      title
+      dateStart
+      dateEnd
+      users {
+        id
+        login
+        homeFloor
+        avatarUrl
+      }
+      room {
+        id
+        title
+        capacity
+        floor
+      }
+    }
+  }
+
+
+
+//Users mutation
+mutation{
+  createUser(
+    input:{
+      login: "qwerty2"
+      homeFloor: 1
+      avatarUrl: "ya.ru"
+    }
+  )
+  {
+    id
+    login
+    homeFloor
+    avatarUrl
+  }
+}
+mutation {
+  updateUser (
+    id:1
+    input: {login: "zindzay"}
+  ) 
+  {
+    id
+    login
+    homeFloor
+    avatarUrl
+  }
+}
+mutation {
+  updateUser (
+    id:4
+    input: {
+      login: "zindzay2"
+      homeFloor: 3
+    }
+   
+  ) 
+  {
+    id
+    login
+    homeFloor
+    avatarUrl
+  }
+}
+mutation {
+  removeUser(id:6) {
+    id
+    login
+    homeFloor
+    avatarUrl
+  }
+}
+
+//room mutation
+mutation {
+  createRoom(
+    input: {
+      title: "tesst1"
+      capacity: 3
+      floor: 2
+    }
+  ) {
+    id
+    title
+    capacity
+    floor
+  }
+}
+mutation {
+  updateRoom(
+    id: 7
+    input: {
+      title: "tesst33"
+      capacity: 5
+      floor: 6
+    }
+  ) {
+    id
+    title
+    capacity
+    floor
+  }
+}
+mutation {
+  removeRoom(
+    id: 6
+  ) {
+    id
+    title
+    capacity
+    floor
+  }
+}
+
+//Event mutation
+mutation {
+  createEvent(
+    input: {
+      title: "ttttt1"
+      dateStart: "2017-12-20T13:44:30.709Z"
+      dateEnd: "2017-12-20T12:44:30.709Z"
+    }
+    usersIds: [7,8]
+    roomId: 7
+  ) {
+    id
+    title
+    dateStart
+    dateEnd
+    users {
+      id
+      login
+      homeFloor
+      avatarUrl
+    }
+    room {
+      id
+      title
+      capacity
+      floor
+    }
+  }
+}
+mutation {
+  updateEvent(
+    id:5
+    input: {
+      title: "ttttt1"
+      dateStart: "2016-12-20T13:44:30.709Z"
+      dateEnd: "2017-12-20T12:44:30.709Z"
+    }
+  ) {
+    id
+    title
+    dateStart
+    dateEnd
+    users {
+      id
+      login
+      homeFloor
+      avatarUrl
+    }
+    room {
+      id
+      title
+      capacity
+      floor
+    }
+  }
+}
+mutation {
+  addUsersToEvent(
+    id:5
+    usersIds: [7,8]
+  ) {
+    id
+    title
+    dateStart
+    dateEnd
+    users {
+      id
+      login
+      homeFloor
+      avatarUrl
+    }
+    room {
+      id
+      title
+      capacity
+      floor
+    }
+  }
+}
+mutation {
+  removeUsersFromEvent(
+    id:5
+    usersIds: [7,8]
+  ) {
+    id
+    title
+    dateStart
+    dateEnd
+    users {
+      id
+      login
+      homeFloor
+      avatarUrl
+    }
+    room {
+      id
+      title
+      capacity
+      floor
+    }
+  }
+}
+mutation {
+  changeEventRoom(
+    id:5
+    roomId: 1
+  ) {
+    id
+    title
+    dateStart
+    dateEnd
+    users {
+      id
+      login
+      homeFloor
+      avatarUrl
+    }
+    room {
+      id
+      title
+      capacity
+      floor
+    }
+  }
+}
+mutation {
+  removeEvent(
+    id:5
+  ) {
+    id
+    title
+    dateStart
+    dateEnd
+    users {
+      id
+      login
+      homeFloor
+      avatarUrl
+    }
+    room {
+      id
+      title
+      capacity
+      floor
+    }
+  }
+}

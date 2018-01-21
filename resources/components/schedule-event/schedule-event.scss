@@ -1,0 +1,133 @@
+@import '../mixin/mixin';
+
+.schedule-event {
+  width: 100%;
+  height: calc(100% - 48px);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  font-size: 0;
+  background: #F6F7F9;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  //border-left: 1px solid #E9ECEF;
+  opacity: .9;
+
+  top: 46px;
+  right: 0;
+  z-index: 300;
+
+  //@include mobile() {
+  //  width: 800%;
+  //
+  //}
+}
+
+.schedule-event__floor {
+  margin-top: 53px;
+  width: 100%;
+  //background: white;
+  background: #f6f7f9;
+ 
+
+  &:first-child {
+    margin-top: 47px;
+  }
+
+  @include mobile() {
+    margin-top: 36px;
+
+    &:first-child {
+      margin-top: 36px;
+    }
+  }
+}
+
+.schedule-event__rooms {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  font-size: 0;
+}
+
+.schedule-event__room {
+  width: 100%;
+  margin-bottom: 24px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include mobile() {
+    height: 60px;
+    border-bottom: 2px solid #F7F8F9;
+    margin-bottom: 0;
+  }
+}
+
+
+.schedule-event__char {
+  width: 57px;
+  height: 28px;
+  display: inline-block;
+  position: relative;
+
+  @include mobile() {
+    height: 60px;
+  }
+}
+
+.schedule-event__char_busy {
+  background: #D5DFE9;
+ 
+
+  &:hover {
+    background: #98A9B9;
+  }
+
+  &:active {
+    background: #8594A2;
+  }
+}
+
+.schedule-event__char_free {
+  background: #FFF;
+  position: relative;
+  text-decoration: none;
+
+  &::after {
+    content: "+";
+    color: #FFF;
+    position: absolute;
+    bottom: 50%;
+    right: 50%;
+    transform: translate(50%, 44%);
+    display: block;
+    font-family: HelveticaNeue, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 23px;
+    vertical-align: bottom;
+  }
+
+  &:hover {
+    background: #1D54FE;
+    border-radius: 2px;
+  }
+
+  &:active {
+    background: #1D00FE;
+    border-radius: 2px;
+  }
+}

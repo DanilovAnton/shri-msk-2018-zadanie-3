@@ -1,0 +1,60 @@
+@import '../mixin/mixin';
+
+.input-time {
+  position: relative;
+
+  @include laptop() {
+    width: 100%;
+  }
+
+  @include mobile() {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.input-time__field {
+  background: #FFFFFF;
+  border: 2px solid #E9ECEF;
+  border-radius: 4px;
+  width: 72px;
+  padding: 8px 9px 10px;
+  font-family: HelveticaNeue, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: #000;
+  letter-spacing: 0.55px;
+  outline: none;
+  box-sizing: border-box;
+
+  &:focus {
+    border: 2px solid #007DFF;
+  }
+
+  &:required {
+    box-shadow: none;
+  }
+
+  @include mobile() {
+    width: 100%;
+    padding: 13px 10px 14px;
+  }
+}
+
+.input-time__separator {
+  margin: 0 8px;
+}
+
+.input-time__group {
+  display: inline-block;
+
+  @include mobile() {
+    /*& > .input-label {
+      display: none;
+    }*/
+
+    width: 46%;
+  }
+}

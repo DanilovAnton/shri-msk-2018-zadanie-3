@@ -1,0 +1,37 @@
+.current-hour {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 49px;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  z-index: 400;
+
+  &:after {
+    content: "";
+    background: #007DFF;
+    width: 1px;
+    height: calc(100% - 29px);
+    position: absolute;
+    top: 29px;
+    left: 50%;
+    display: block;
+  }
+}
+
+.current-hour__text {
+  font-family: HelveticaNeue, Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  color: #fff;
+  letter-spacing: 0.4px;
+  width: 49px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #007DFF;
+  border-radius: 100px;
+  margin-top: 13px;
+}

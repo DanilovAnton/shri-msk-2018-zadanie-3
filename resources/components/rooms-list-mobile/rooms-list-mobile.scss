@@ -1,0 +1,63 @@
+@import '../mixin/mixin';
+
+.rooms-list-mobile {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0;
+}
+
+.rooms-list-mobile__item {
+  padding: 4px 0;
+  margin: 0 0 8px;
+
+  &:hover > .rooms-list-mobile__title {
+    color: #0070E0;
+  }
+
+  &:active > .rooms-list-mobile__title {
+    color: #1D54FE;
+  }
+
+  @include mobile() {
+    margin: 36px 0 0 16px;
+
+    &:first-child {
+      margin: 0 0 0 16px;
+    }
+  }
+}
+
+.rooms-list-mobile__title {
+  font-family: HelveticaNeue, Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: #000;
+  line-height: 17px;
+
+  @include mobile() {
+    font-size: 11px;
+    padding: 5px 8px 6px;
+    box-shadow: 0 1px 8px 0 rgba(0,44,92,0.28);
+    border-radius: 4px;
+    background: #fff;
+    opacity: .8;
+    display: inline;
+  }
+}
+
+.rooms-list-mobile__title_hover {
+  color: #0070E0;
+}
+
+.rooms-list-mobile__item_disabled:hover > .rooms-list-mobile__title {
+  color: #858E98;
+}
+
+.rooms-list-mobile__item_disabled:active > .rooms-list-mobile__title {
+  color: #858E98;
+}
+
+.rooms-list-mobile__item_disabled > .rooms-list-mobile__title {
+  color: #858E98;
+}

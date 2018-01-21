@@ -1,0 +1,127 @@
+@import '../mixin/mixin';
+
+.meeting-info {
+  position: absolute;
+  top: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #FFF;
+  box-shadow: 0 1px 16px 0 rgba(0,44,92,0.28);
+  border-radius: 8px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  width: 338px;
+  z-index: 999;
+  padding: 16px;
+  box-sizing: border-box;
+
+  &:after {
+    position: absolute;
+    top: -10px;
+    right: 50%;
+    transform: rotate(45deg) translate(50%);
+    content: "";
+    width: 11px;
+    height: 11px;
+    display: inline-block;
+    background: #fff;
+  }
+
+  @include mobile() {
+    width: 100%;
+    left: 0;
+    right: 0;
+    position: fixed;
+    transform: translateX(0);
+  }
+}
+
+.meeting-info__edit {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.meeting-info__header {
+  font-family: HelveticaNeue, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  width: 90%;
+  color: #000;
+  letter-spacing: 0;
+  line-height: 24px;
+  font-weight: 700;
+  margin: 0 0 2px;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.meeting-info__description {
+  font-family: HelveticaNeue, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  color: #000000;
+  letter-spacing: 0;
+  line-height: 17px;
+  font-weight: 400;
+  margin: 0 0 16px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 90%;
+}
+
+.meeting-info__date {
+  position: relative;
+  margin-right: 17px;
+  display: inline-block;
+
+
+  &:after {
+    font-weight: 400;
+    content: "·";
+    position: absolute;
+    top: 0;
+    right: -11px;
+    line-height: 17px;
+  }
+}
+
+.meeting-info__room {
+  display: inline-block;
+}
+
+.meeting-info__user {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.meeting-info__user-icon {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.meeting-info__user-name {
+  display: inline-block;
+  margin-right: 5px;
+  font-family: HelveticaNeue, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  color: #000;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 17px;
+}
+
+.meeting-info__user-count {
+  display: inline-block;
+  font-family: HelveticaNeue, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  color: #9CA4AC;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 17px;
+}

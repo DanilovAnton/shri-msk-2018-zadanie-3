@@ -1,0 +1,21 @@
+@import '../mixin/mixin';
+
+.participants {
+  width: 100%;
+}
+
+.participants__input {
+  margin-bottom: 15px;
+
+  @include mobile() {
+    width: 100%;
+  }
+}
+
+.participants__user {
+  margin-bottom: 15px;
+
+  @include mobile() {
+    width: 100%;
+  }
+}

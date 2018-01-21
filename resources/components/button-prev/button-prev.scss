@@ -1,0 +1,37 @@
+@import '../mixin/mixin';
+
+.button-prev {
+  display: inline-block;
+  background: #E9ECEF;
+  border-radius: 100px;
+  border: none;
+  outline:none;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  fill: rgba(0,0,0,0.43);
+  position: relative;
+  padding: 0;
+
+  &:hover,
+  &:focus {
+    background: #E9ECEF;
+    fill: #000;
+  }
+
+  @include mobile() {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.button-prev__icon {
+  width: 49%;
+  height: 49%;
+  position: absolute;
+  left: 0;
+  right: 2px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}

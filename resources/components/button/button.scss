@@ -1,0 +1,107 @@
+@import '../mixin/mixin';
+
+.button {
+  padding: 10px 16px;
+  display: inline-block;
+  background: #007dff;
+  border-radius: 4px;
+  font-family: HelveticaNeue, Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  color: #fff;
+  letter-spacing: .2px;
+  text-decoration: none;
+  border: none;
+  outline:none;
+  cursor: pointer;
+  transition: .5s;
+
+  &:hover {
+    background: #0058FF;
+  }
+
+  &:active {
+    background: #0011FE;
+  }
+
+  @include mobile() {
+    font-size: 15px;
+    padding: 13px 24px;
+  }
+}
+
+.button_color_gray {
+  background: #E9ECEF;
+  color: #000;
+
+  &:hover {
+    background: #DDE0E4;
+  }
+
+  &:active {
+    background: #C7CDD3;
+  }
+}
+
+.button_warning {
+  background: #E9ECEF;
+  color: #FF3333;
+
+  &:hover {
+    background: #DDE0E4;
+  }
+
+  &:active {
+    background: #C7CDD3;
+  }
+}
+
+.button_disabled
+{
+  background: #E5E9EC;
+  color: #BABCBF;
+  cursor: default;
+
+  &:hover {
+    background: #E5E9EC;
+  }
+
+  &:active {
+    background: #E5E9EC;
+  }
+}
+
+.button_disabled-gray
+{
+  background: #E2E5E8;
+  color: #B8BBBD;
+  cursor: default;
+
+  &:hover {
+    background: #E2E5E8;
+  }
+
+  &:active {
+    background: #E2E5E8;
+  }
+}
+
+.button_size_big {
+  @include mobile() {
+    padding: 0;
+    width: 100%;
+    height: 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    font-family: HelveticaNeue, Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    color: #FF3333;
+    text-decoration: none;
+    border: none;
+    outline:none;
+    cursor: pointer;
+  }
+}

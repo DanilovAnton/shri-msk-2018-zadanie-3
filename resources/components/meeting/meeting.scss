@@ -1,0 +1,28 @@
+@import '../mixin/mixin';
+
+.meeting {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.meeting__wrapper {
+  min-height: 100%;
+  position: relative;
+
+  &:after {
+    content: "";
+    height: 76px;
+    display: block;
+  }
+}
+
+.meeting__wrapper_message {
+  @include mobile {
+    &:after {
+      content: "";
+      height: 109px;
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,125 @@
+@import '../mixin/mixin';
+
+.footer {
+  width: 100%;
+  min-height: 76px;
+  margin-top: -76px;
+  position: relative;
+  border-top: 1px solid #E9ECEF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+
+  @include mobile {
+    justify-content: flex-end;
+    border-top: none;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 800;
+    padding: 0 16px;
+
+    &:before {
+      content: "";
+      height: 8px;
+      background: #E9ECEF;
+      display: block;
+      position: fixed;
+      bottom: 76px;
+      left: -0;
+      right: 0;
+    }
+  }
+}
+
+.footer__button {
+  margin-right: 16px;
+  display: inline;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.footer__message {
+  @include mobile {
+    &:before {
+      height: 43px;
+      content: "Выберите переговорку";
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      position: fixed;
+      bottom: 76px;
+      right: 0;
+      left: 0;
+      font-family: HelveticaNeue, Helvetica, Arial, sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: #fff;
+      padding: 0 16px;
+      opacity: 0.93;
+      background: rgba(0,16,33,0.80);
+      box-sizing: border-box;
+    }
+  }
+}
+
+.footer_edit {
+  @include mobile {
+    min-height: 142px;
+    margin-top: -142px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    border-top: none;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 800;
+    padding: 0 16px;
+
+    &:before {
+      content: "";
+      height: 8px;
+      background: #E9ECEF;
+      display: block;
+      position: fixed;
+      bottom: 134px;
+      left: -0;
+      right: 0;
+    }
+
+    &:after {
+      content: "";
+      height: 8px;
+      background: #E9ECEF;
+      display: block;
+      position: fixed;
+      bottom: 72px;
+      left: -0;
+      right: 0;
+    }
+  }
+}
+
+.footer__button_cancel {
+  @include mobile {
+    order: 1;
+  }
+}
+
+.footer__button_delete {
+  @include mobile {
+    order: 0;
+    width: 100%;
+    margin-right: -16px;
+    margin-bottom: 8px;
+  }
+}
+
+.footer__button_update {
+  @include mobile {
+    order: 1;
+  }
+}

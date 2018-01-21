@@ -1,0 +1,29 @@
+.button-edit {
+  display: inline-block;
+  background: #E9ECEF;
+  border-radius: 100px;
+  border: none;
+  outline:none;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  color: transparent;
+  position: relative;
+  fill: rgba(0,0,0,0.43);
+
+  &:focus {
+    background: #E9ECEF;
+    fill: #000;
+  }
+}
+
+.button-edit__icon {
+  width: 65%;
+  height: 65%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}

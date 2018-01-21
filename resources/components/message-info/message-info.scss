@@ -1,0 +1,93 @@
+@import '../mixin/mixin';
+
+.message-info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 444px;
+  height: 252px;
+  background: #FFFFFF;
+  box-shadow: 0 1px 16px 0 rgba(0,44,92,0.28);
+  border-radius: 8px;
+  padding: 32px 32px 42px;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  z-index: 999;
+  box-sizing: border-box;
+  display: flex;
+
+  @include mobile() {
+    width: 100%;
+    margin: 0;
+    top: auto;
+    bottom: 24px;
+  }
+}
+
+.message-info_delete {
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-flow: column;
+}
+
+.message-info__icon {
+  font-size: 40px;
+  letter-spacing: 0;
+  line-height: 24px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 17px;
+}
+
+.message-info__header {
+  font-family: HelveticaNeue, Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  color: #000;
+  letter-spacing: 0;
+  line-height: 24px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 0;
+  margin: 0 0 8px;
+}
+
+.message-info__date {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 6px;
+  font-family: HelveticaNeue, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  color: #000;
+  letter-spacing: 0;
+  line-height: 17px;
+}
+
+.message-info__floor {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 24px;
+  font-family: HelveticaNeue, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  color: #000;
+  letter-spacing: 0;
+  line-height: 17px;
+}
+
+.message-info__button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,148 @@
+@import '../mixin/mixin';
+
+.three-months {
+  display: block;
+  position: absolute;
+  top: 45px;
+  left: 0;
+  background: #fff;
+  border: solid 2px #E9ECEF;
+  text-align: center;
+  border-radius: 4px;
+  box-sizing: border-box;
+  z-index: 999;
+  padding: 16px;
+  box-shadow: 0 1px 8px 0 rgba(0,44,92,0.28);
+
+  @include mobile() {
+    padding-bottom: 0;
+    padding-right: 0;
+  }
+}
+
+.three-months__one {
+  display: inline-block;
+  background: #fff;
+  border: solid 1px #E9ECEF;
+  margin-right: 16px;
+  text-align: center;
+  width: 251px;
+  box-sizing: border-box;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @include mobile() {
+    &:last-child {
+      margin-right: 16px;
+    }
+
+    margin-bottom: 16px;
+  }
+}
+
+.three-months__header {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  flex-wrap: wrap;
+  cursor: default;
+}
+
+.three-months__month-label {
+  flex: 1;
+}
+
+.three-months__month-display {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  position: relative;
+  cursor: default;
+  font-family: HelveticaNeue, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #000;
+  text-transform: capitalize;
+  user-select: none;
+  width: 100%;
+  padding: 8px;
+  border-bottom: solid 1px #E9ECEF;
+}
+
+.three-months__day-names {
+  display: flex;
+  width: 100%;
+  list-style: none;
+  font-size: 0;
+  margin: 0;
+  padding: 0;
+
+  .three-months__day {
+    cursor: default;
+    font-weight: 500;
+    color: #0070E0;
+
+    &:hover {
+      background: inherit;
+
+    }
+  }
+}
+
+.three-months__day {
+  font-family: HelveticaNeue, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #000;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  flex: 1;
+  height: 35px;
+  border-left: solid 1px #E9ECEF;
+  cursor: pointer;
+  text-transform: capitalize;
+
+  &:hover {
+    background: #EFEFEF;
+  }
+
+  &:first-child {
+    border-left:none;
+  }
+
+  &.three-months__today {
+    background: #007dff;
+    color: #fff;
+  }
+
+  &.three-months__different-month {
+    color: rgba(103, 106, 110, 0.74);
+  }
+
+  &.three-months__selected {
+    background: #0058FF;
+    color: #fff;
+  }
+
+  @include mobile() {
+    font-size: 16px;
+  }
+}
+
+.three-months__week {
+  border-top: solid 1px #E9ECEF;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+
+  &:first-child {
+    border-top: none;
+  }
+}

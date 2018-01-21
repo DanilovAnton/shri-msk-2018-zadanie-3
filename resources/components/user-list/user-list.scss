@@ -1,0 +1,79 @@
+@import '../mixin/mixin';
+
+.user-list {
+  display: flex;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  list-style: none;
+  font-size: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.user-list__item {
+  background: #E9ECEF;
+  border-radius: 16px;
+  padding: 3px 36px 4px 32px;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  margin: 0 8px 8px 0;
+
+  @include mobile() {
+    width: 100%;
+    padding: 7px 40px 8px 40px;
+    margin: 0 0 8px;
+  }
+}
+
+.user-list__username {
+  font-family: HelveticaNeue, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  color: #000;
+  letter-spacing: 0;
+  line-height: 17px;
+
+  @include mobile() {
+    font-size: 15px;
+  }
+}
+
+.user-list__icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.user-list__delete {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  display: inline-block;
+  border: none;
+  background: transparent;
+  color: transparent;
+  outline: none;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: #AFB4B8;
+  width: 16px;
+  height: 16px;
+
+  &:hover,
+  &:active {
+    fill: #000;
+  }
+
+  @include mobile() {
+    width: 19px;
+    height: 19px;
+  }
+}
+
+.user-list__delete-icon {
+  width: 100%;
+  height: 100%;
+}
