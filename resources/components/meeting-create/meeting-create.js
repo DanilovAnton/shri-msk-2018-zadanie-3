@@ -99,8 +99,6 @@ class MeetingCreate extends React.Component {
 
       this.setState({data: data}, () => {
         this.setDateTime();
-
-        console.log(this.state.data);
       });
     }
 

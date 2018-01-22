@@ -115,9 +115,6 @@ const getSwapRoom = (date, dateStartIn, dateEndIn, capacityIn) => {
 
     return Promise.all(arrayOfPromises);
   }).then(() => {
-    console.log('3. swapRoom');
-    console.log(swapRoom);
-    console.log('3. swapRoom');
 
     Object.keys(swapRooms).map((id) => {
       if (!swapRoom) {
@@ -129,10 +126,7 @@ const getSwapRoom = (date, dateStartIn, dateEndIn, capacityIn) => {
 
     return swapRoom;
   }).catch((error) => {
-    console.log('2. swapRoom');
     console.log(error);
-    console.log(swapRoom);
-    console.log('2. swapRoom');
     return swapRoom;
   });
 };
@@ -300,9 +294,6 @@ module.exports = {
         return rooms;
       } else {
         return getSwapRoom(date, dateStartIn, dateEndIn, capacityIn).then((swapRoom) => {
-          console.log('1. swapRoom');
-          console.log(swapRoom);
-          console.log('1. swapRoom');
           if (swapRoom) {
             let arrayOfPromises = swapRoom.event.map((event) => {
               let id = event[0];
