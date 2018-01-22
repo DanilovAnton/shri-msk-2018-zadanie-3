@@ -76,6 +76,12 @@ type UserEvents {
     avatarUrl: String!
 }
 
+type BusyRoom {
+  id: Int!
+  day_time: String
+  full_day_time: String
+}
+
 input UserInput {
     login: String!
     homeFloor: Int!
@@ -137,6 +143,8 @@ type Query {
   countUsers(event_id: Int!): Int
   
   getRecommendation(capacityIn: Int!, dateStartIn: Date!, dateEndIn: Date!, users: [Int!]): [FreeRoomsWithDate]
+  
+  busyRoom(date: String!): [BusyRoom]
 }
 
 type Mutation {

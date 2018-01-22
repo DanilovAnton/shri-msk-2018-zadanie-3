@@ -115,7 +115,6 @@ const getSwapRoom = (date, dateStartIn, dateEndIn, capacityIn) => {
 
     return Promise.all(arrayOfPromises);
   }).then(() => {
-
     Object.keys(swapRooms).map((id) => {
       if (!swapRoom) {
         swapRoom = swapRooms[id];
@@ -282,6 +281,23 @@ module.exports = {
         event_id: event_id
       }
     });
+  },
+
+  busyRoom (obj, { date }, context) {
+    return sequelize.query('SELECT se.room_id as id, ' +
+      'sum(strftime("%s", se.dateEnd) - strftime("%s", "00:00:00")) - sum(strftime("%s", se.dateStart) - strftime("%s", "00:00:00")) as day_time, ' +
+      'sum(strftime("%s", "23:00:00") - strftime("%s", "00:00:00")) - sum(strftime("%s", "08:00:00") - strftime("%s", "00:00:00")) as full_day_time ' +
+      'FROM ScheduleEvents se ' +
+      'WHERE se.date = :date ' +
+      'GROUP BY se.room_id ' +
+      'HAVING sum(strftime("%s", se.dateEnd) - strftime("%s", "00:00:00")) - sum(strftime("%s", se.dateStart) - strftime("%s", "00:00:00")) = sum(strftime("%s", "23:00:00") - strftime("%s", "00:00:00")) - sum(strftime("%s", "08:00:00") - strftime("%s", "00:00:00"))',
+      { replacements:
+      {
+        date: date
+      },
+        type: sequelize.QueryTypes.SELECT
+      }
+    );
   },
 
   getRecommendation (obj, { capacityIn, dateStartIn, dateEndIn, users }, context) {

@@ -16,7 +16,7 @@ const floorsListQuery = gql`
 `;
 
 const FloorsListMobile = (props) => {
-  const {busy, hover, data: {loading, error, floors = []}} = props;
+  const {date, hover, data: {loading, error, floors = []}} = props;
 
   if (loading) {
     return <p>Loading ...</p>;
@@ -31,7 +31,7 @@ const FloorsListMobile = (props) => {
           <h2 className='floor-list-mobile__title'>
             {floor.floor} этаж
           </h2>
-          <RoomsListMobile floor={floor.floor} busy={busy} hover={hover} />
+          <RoomsListMobile date={date} floor={floor.floor} hover={hover} />
         </li>
       ))}
     </ul>

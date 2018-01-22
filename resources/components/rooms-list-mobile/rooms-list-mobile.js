@@ -5,13 +5,26 @@ import React from 'react';
 import gql from 'graphql-tag';
 import {graphql} from 'react-apollo/index';
 
+const roomsIdToArray = (rooms) => {
+  let arr = [];
+
+  rooms.map(room => {
+    arr.push(Number(room.id));
+  });
+
+  return arr;
+};
+
 const roomsListQuery = gql`
-  query RoomsListQuery($floor: Int!){
+  query RoomsListQuery($floor: Int!, $date: String!){
     roomsByFloor(floor: $floor) {
       id
       title
       capacity
       floor
+    }
+    busyRoom(date: $date) {
+      id
     }
   }
 `;
@@ -26,7 +39,8 @@ class RoomsListMobile extends React.Component {
   }
 
   render () {
-    const { busy, hover, data: { loading, error, roomsByFloor = [] } } = this.props;
+    const { hover, data: { loading, error, roomsByFloor = [], busyRoom = [] } } = this.props;
+    const rooms = roomsIdToArray(busyRoom);
 
     if (loading) {
       return <p>Loading ...</p>;
@@ -38,7 +52,7 @@ class RoomsListMobile extends React.Component {
       <ul className='rooms-list-mobile'>
         {roomsByFloor.map(room => {
           return (
-            <li key={room.id} className={busy === room.id ? 'rooms-list-mobile__item rooms-list-mobile__item_disabled' : 'rooms-list-mobile__item'} >
+            <li key={room.id} className={rooms.indexOf(Number(room.id)) > -1 ? 'rooms-list-mobile__item rooms-list-mobile__item_disabled' : 'rooms-list-mobile__item'} >
               <div className={room.id === hover ? 'rooms-list-mobile__title rooms-list-mobile__title_hover' : 'rooms-list-mobile__title'}>{room.title}</div>
             </li>
           );
@@ -49,7 +63,7 @@ class RoomsListMobile extends React.Component {
 }
 
 const RoomsListMobileWithData = graphql(roomsListQuery, {
-  options: ({floor}) => ({variables: {floor}})
+  options: ({floor, date}) => ({variables: {floor, date}, pollInterval: 5000})
 })(RoomsListMobile);
 
 export default RoomsListMobileWithData;

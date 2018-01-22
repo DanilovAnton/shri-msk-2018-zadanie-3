@@ -140,7 +140,6 @@ class ScheduleEvent extends React.Component {
   constructor (props) {
     super(props);
 
-    this.busy = this.busy.bind(this);
     this.hover = this.hover.bind(this);
     this.blur = this.blur.bind(this);
   }
@@ -156,22 +155,6 @@ class ScheduleEvent extends React.Component {
     });
 
     arr = calcStyle(arr);
-
-    this.busy(arr);
-  }
-
-  busy (arr) {
-    let flag = 0;
-
-    arr.map(time => {
-      if (time.flag && time.event_id < 0) {
-        flag = '-1';
-      } else if (time.flag && time.event_id > 0 && flag === 0) {
-        flag = time.room_id;
-      }
-    });
-
-    this.props.busy(flag);
   }
 
   hover (event) {
@@ -293,7 +276,7 @@ const roomsListQuery = gql`
 `;
 
 const RoomsList = (props) => {
-  const {hover, busy, date, data: {loading, error, roomsByFloor = []}} = props;
+  const {hover, date, data: {loading, error, roomsByFloor = []}} = props;
 
   if (loading) {
     return <p>Loading ...</p>;
@@ -305,7 +288,7 @@ const RoomsList = (props) => {
     <ul className='schedule-event__rooms'>
       {roomsByFloor.map(room => (
         <li key={room.id} className='schedule-event__room'>
-          <ScheduleEventByFloorWithData date={date} room_id={room.id} hover={hover} busy={busy} capacity={room.capacity} />
+          <ScheduleEventByFloorWithData date={date} room_id={room.id} hover={hover} capacity={room.capacity} />
         </li>
       ))}
     </ul>
@@ -325,7 +308,7 @@ const floorsListQuery = gql`
 `;
 
 const FloorsList = (props) => {
-  const {hover, busy, date, data: {loading, error, floors = []}} = props;
+  const {hover, date, data: {loading, error, floors = []}} = props;
 
   if (loading) {
     return <p>Loading ...</p>;
@@ -337,7 +320,7 @@ const FloorsList = (props) => {
     <ul className='schedule-event' >
       {floors.map(floor => (
         <li key={floor.floor} className='schedule-event__floor'>
-          <RoomsListWithData floor={floor.floor} date={date} hover={hover} busy={busy} />
+          <RoomsListWithData floor={floor.floor} date={date} hover={hover} />
         </li>
         ))}
     </ul>

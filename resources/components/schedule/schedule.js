@@ -35,7 +35,6 @@ class Schedule extends React.Component {
 
     this.next = this.next.bind(this);
     this.previous = this.previous.bind(this);
-    this.busy = this.busy.bind(this);
     this.hover = this.hover.bind(this);
     this.swipingLeft = this.swipingLeft.bind(this);
     this.swipingRight = this.swipingRight.bind(this);
@@ -120,8 +119,9 @@ class Schedule extends React.Component {
     const swipeElement = document.getElementById('swipeElement');
     const swipeContainer = document.getElementById('swipeContainer');
 
-    swipeElement.removeAttribute('style');
-    swipeContainer.removeAttribute('style');
+    if (swipeElement) swipeElement.removeAttribute('style');
+    if (swipeContainer) swipeContainer.removeAttribute('style');
+
     this.setState({displayNum: 1});
     this.setState({showScheduleRooms: true});
     this.setState({swipe: true});
@@ -133,10 +133,6 @@ class Schedule extends React.Component {
 
   componentWillUnmount () {
     document.removeEventListener('resize', this.clearStyle, false);
-  }
-
-  busy (status) {
-    this.setState({busy: status});
   }
 
   hover (status) {
@@ -202,20 +198,20 @@ class Schedule extends React.Component {
           {
             this.state.showScheduleRooms &&
             <div className='schedule__rooms'>
-              <FloorsListWithData busy={this.state.busy} hover={this.state.hover} />
+              <FloorsListWithData hover={this.state.hover} date={this.state.date} />
             </div>
           }
           {
             !this.state.showScheduleRooms &&
             <div className='schedule__rooms schedule__rooms_mobile'>
-              <FloorsListMobileWithData busy={this.state.busy} hover={this.state.hover} />
+              <FloorsListMobileWithData hover={this.state.hover} date={this.state.date} />
             </div>
           }
           <Swipeable id='swipeContainer' className='schedule__swipe' onSwipingLeft={this.swipingLeft} onSwipingRight={this.swipingRight}>
             <div id='swipeElement' className='schedule__chart'>
               <CurrentHour />
               <Timeline />
-              <ScheduleEvent date={this.state.date} hover={this.hover} busy={this.busy} />
+              <ScheduleEvent date={this.state.date} hover={this.hover} />
             </div>
           </Swipeable>
         </section>
