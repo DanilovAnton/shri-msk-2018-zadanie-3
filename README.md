@@ -104,6 +104,7 @@ npm run reset-db
 - react-swipeable - для реализации свайпа
 - babel-preset-react - для компиляции jsx
 - postcss-flexbugs-fixes - фикс для flexbox
+- morgan - для логирования действий в приложении
 
 Для реализации SPA выбирал между Vue.js и React.js, выбрал React.js т.к. комьюнити React.js намного больше комньюнити Vue.js, по React.js больше информации и примеров реализации.
 
