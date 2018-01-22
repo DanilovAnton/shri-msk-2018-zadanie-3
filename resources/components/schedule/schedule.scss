@@ -11,7 +11,7 @@
   width: 100%;
   height: calc(100% - 72px);
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
 
   @include mobile() {
     flex-flow: row wrap;
