@@ -278,7 +278,7 @@ class Event extends React.Component {
 }
 
 const ScheduleEventByFloorWithData = graphql(scheduleEventQuery, {
-  options: ({room_id, date}) => ({variables: {room_id, date}})
+  options: ({room_id, date}) => ({variables: {room_id, date}, pollInterval: 5000})
 })(ScheduleEvent);
 
 const roomsListQuery = gql`
